@@ -12,5 +12,5 @@ for j = 1:w
     C0(:,j) = S;
 end
 X = -(w/2):(w/2);
-Htheta = round(tan(deg2rad(theta))*X);
+Htheta = floor(tan(deg2rad(theta))*X);
 Ctheta = CircularShift(C0,Htheta,l,w);
