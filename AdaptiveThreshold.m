@@ -15,7 +15,7 @@ records = adjacentLocalMax(records,rangeMatrix);
 function index = lastLessThan(colomn,energy)
 for i = 1:size(colomn,1)
     if colomn(i) > energy
-        index = i;    
+        index = i-1;    
         return;
     end
 end
