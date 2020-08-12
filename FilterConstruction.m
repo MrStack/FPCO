@@ -1,4 +1,5 @@
 function Ctheta = FilterConstruction(ts,f0,w,theta)
+w = round(w);
 halfCycle = 1/(2*f0*ts);
 Y = zeros(round(halfCycle)+1,1);
 for i = 1:length(Y)
@@ -12,5 +13,5 @@ for j = 1:w
     C0(:,j) = S;
 end
 X = -(w/2):(w/2);
-Htheta = floor(tan(deg2rad(theta))*X);
+Htheta = round(tan(deg2rad(theta))*X);
 Ctheta = CircularShift(C0,Htheta,l,w);

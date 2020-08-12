@@ -1,4 +1,5 @@
 function Filters = ConstructFilters(ts,f0,w)
+w = round(w);
 theta = 0:10:170;
 Filters = cell(1,18);
 for i = 1:18

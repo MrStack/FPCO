@@ -1,4 +1,5 @@
 function [rangeMatrix,bias] = extractRangeMatrix(wave,rangeLine,window)
+window = floor(window);
 if(mod(window,2) == 0)
     window = window+1;
 end

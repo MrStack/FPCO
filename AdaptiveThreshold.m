@@ -6,7 +6,7 @@ energy = minEnergy:stepSize:maxEnergy;
 records = zeros(length(energy),size(rangeMatrix,2));
 for i = 1:length(energy)
     for j = 1:size(rangeMatrix,2)
-        records(i,j) = lastLessThan(rangeMatrix(:,j),energy(i)-1);
+        records(i,j) = lastLessThan(rangeMatrix(:,j),energy(i));
     end
 end
 records = records(evaluation(records,rangeMatrix),:);
@@ -15,8 +15,13 @@ records = adjacentLocalMax(records,rangeMatrix);
 function index = lastLessThan(colomn,energy)
 for i = 1:size(colomn,1)
     if colomn(i) > energy
-        index = i-1;    
+        index = i-1;
+        if index == 0
+            index = 1;
+        end
         return;
+%         index = i;    
+%         return;
     end
 end
 index = 1;
