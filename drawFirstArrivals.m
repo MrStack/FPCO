@@ -5,7 +5,7 @@ if nargin <= 2
     marker = 'o';
     markerSize = 4;
 end
-interval = 1;
+interval = 1.3;
 hold on;
 index = wave >= 0;
 half_wave = zeros(size(wave));
@@ -16,7 +16,7 @@ if coverLayer > 0
         fill(0:size(wave,1)+1,[(i-1)*interval;half_wave(:,i)+(i-1)*interval;(i-1)*interval],'black');
     end
 end
-plot(firstArrivals,0:length(firstArrivals)-1,'color',color,'linestyle','none',...
+plot(firstArrivals,(0:length(firstArrivals)-1)*interval,'color',color,'linestyle','none',...
     'marker',marker,'markersize',markerSize,'markerfacecolor','white');
 
 hold off;

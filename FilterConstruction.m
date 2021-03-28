@@ -5,9 +5,9 @@ Y = zeros(round(halfCycle)+1,1);
 for i = 1:length(Y)
     Y(i) = sin(2*pi*f0*ts*(i-1));
 end
-Z = zeros(round((halfCycle+1)*1),1);
+Z = zeros(ceil(abs(tan(deg2rad(theta)))*w/2*1),1);
 S = [Z;Y;Z];
-l = 3*round(halfCycle+1);
+l = round(2*length(Z)+length(Y));
 C0 = zeros(l,w);
 for j = 1:w
     C0(:,j) = S;

@@ -20,8 +20,6 @@ for i = 1:size(colomn,1)
             index = 1;
         end
         return;
-%         index = i;    
-%         return;
     end
 end
 index = 1;
@@ -31,4 +29,4 @@ evals = zeros(size(records,1),1);
 for i = 1:length(evals)
     evals(i) = ObjectFunction(records(i,:),rangeMatrix);
 end
-[ignore,bestIndex] = min(evals);
+[~,bestIndex] = min(evals);

@@ -1,9 +1,10 @@
-function Filters = ConstructFilters(ts,f0,w)
+function Filters = ConstructFilters(ts,f0,w,kernelCount)
 w = round(w);
-theta = 0:10:170;
-Filters = cell(1,18);
-for i = 1:18
-    if theta(i) == 90
+step = 180/kernelCount;
+theta = 0:step:180-step;
+Filters = cell(1,kernelCount);
+for i = 1:length(Filters)
+    if abs(theta(i)-90) < 1e-4
         Filters{i} = NinetyDegreeFilter(ts,f0,w);
         continue;
     end

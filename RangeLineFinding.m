@@ -4,16 +4,16 @@ resultsCount = length(convResults);
 W = zeros(resultsCount,n);
 for i = 1:resultsCount
     for j = 1:n
-        [ignore,W(i,j)] = max(convResults{i}(:,j));
+        [~,W(i,j)] = max(convResults{i}(:,j));
     end
 end
-P = zeros(18,n);
+P = zeros(length(convResults),n);
 for k = 1:n
-    dist = pdist(W(:,k),'cityblock');
+    dist = pdist(W(:,k),'cityblock');    
     dist = -(squareform(dist)/dc).^2;
     P(:,k) = sum(exp(dist),2);
 end
-[ignore,R] = max(P);
+[~,R] = max(P);
 
 for k = 1:n
     T = W(:,k);
